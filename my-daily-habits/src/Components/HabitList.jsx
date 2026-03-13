@@ -1,3 +1,5 @@
+import HabitCard from './HabitCard'
+
 function HabitList() {
 const [novoNome,      setNovoNome]      = useState('')
 const [novaDescricao, setNovaDescricao] = useState('')
