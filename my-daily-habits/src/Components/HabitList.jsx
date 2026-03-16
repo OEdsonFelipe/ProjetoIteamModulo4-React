@@ -1,5 +1,6 @@
 // src/components/HabitList.jsx
 import { useState } from 'react'
+import { useEffect } from 'react'
 import HabitCard from './HabitCard'
 
 function HabitList() {
@@ -9,6 +10,12 @@ function HabitList() {
     { id: 3, nome: 'Meditação',  descricao: 'Respiração e foco',  meta: 7, ativo: false, diasFeitos: 0 },
     { id: 4, nome: 'Hidratação', descricao: 'Beber 2L de água',   meta: 7, ativo: true,  diasFeitos: 6 },
   ])
+  useEffect(() => {console.log('✅ HabitList montou')}, [])
+  useEffect(() => {
+  localStorage.setItem('my-daily-habits', JSON.stringify(habits))
+  console.log('💾 Hábitos salvos:', habits.length)
+}, [habits])
+
 
   const removerHabit = (id) => {
     setHabits(habits.filter(habit => habit.id !== id))
